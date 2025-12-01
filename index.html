@@ -1498,9 +1498,17 @@
  }
 
  .carousel-slide.magazine-cover {
- min-height: 400px;
+ min-height: auto;
  background-size: cover;
  background-position: center;
+ padding: 3rem 1rem;
+ }
+
+ .carousel-slide.magazine-cover::before {
+ background: linear-gradient(135deg,
+ rgba(15, 23, 42, 0.85) 0%,
+ rgba(30, 41, 59, 0.80) 50%,
+ rgba(30, 58, 95, 0.85) 100%);
  }
 
  .carousel-button,
