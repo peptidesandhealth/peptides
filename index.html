@@ -4772,10 +4772,12 @@
  updateProductsCarousel();
  // resetProductsAutoPlay(); // Автоплей отключен
 
- // Прокрутка к началу карусели продуктов
+ // Прокрутка к началу карусели продуктов (только на мобильных)
+ if (window.innerWidth <= 640) {
  const productsCarouselSection = document.getElementById('products-carousel');
  if (productsCarouselSection) {
  productsCarouselSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+ }
  }
 
  setTimeout(() => {
@@ -4791,10 +4793,12 @@
  updateProductsCarousel();
  // resetProductsAutoPlay(); // Автоплей отключен
 
- // Прокрутка к началу карусели продуктов
+ // Прокрутка к началу карусели продуктов (только на мобильных)
+ if (window.innerWidth <= 640) {
  const productsCarouselSection = document.getElementById('products-carousel');
  if (productsCarouselSection) {
  productsCarouselSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+ }
  }
 
  setTimeout(() => {
