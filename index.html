@@ -1533,15 +1533,21 @@
  .carousel-slide {
  padding: 1.5rem 0.5rem;
  flex-direction: column;
+ min-height: 100vh;
+ display: flex;
+ justify-content: center;
  }
 
  .carousel-slide.magazine-cover {
- min-height: auto;
- background-size: 100% auto;
- background-position: center top;
+ min-height: 100vh;
+ background-size: cover;
+ background-position: center;
  background-repeat: no-repeat;
  padding: 1.5rem 0.5rem;
  background-attachment: scroll;
+ display: flex;
+ justify-content: center;
+ align-items: center;
  }
 
  .carousel-slide.magazine-cover::before {
@@ -1549,6 +1555,13 @@
  rgba(15, 23, 42, 0.85) 0%,
  rgba(30, 41, 59, 0.80) 30%,
  rgba(30, 58, 95, 0.85) 100%);
+ }
+
+ .slide-content {
+ width: 100%;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
  }
 
  .carousel-button,
