@@ -1335,6 +1335,51 @@
  color: var(--primary-color);
  }
 
+ /* Scroll to Top Button */
+ .scroll-to-top {
+ position: fixed;
+ bottom: 80px;
+ right: 20px;
+ width: 50px;
+ height: 50px;
+ background: linear-gradient(135deg, rgba(59, 130, 246, 0.9) 0%, rgba(129, 140, 248, 0.9) 100%);
+ border: 2px solid rgba(59, 130, 246, 0.5);
+ border-radius: 50%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ cursor: pointer;
+ opacity: 0;
+ visibility: hidden;
+ transition: all 0.3s ease;
+ box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+ z-index: 999;
+ }
+
+ .scroll-to-top.visible {
+ opacity: 1;
+ visibility: visible;
+ }
+
+ .scroll-to-top:hover {
+ transform: translateY(-5px);
+ box-shadow: 0 6px 16px rgba(59, 130, 246, 0.6);
+ background: linear-gradient(135deg, rgba(96, 165, 250, 0.9) 0%, rgba(129, 140, 248, 0.9) 100%);
+ }
+
+ .scroll-to-top:active {
+ transform: translateY(-2px);
+ }
+
+ .scroll-to-top svg {
+ width: 24px;
+ height: 24px;
+ stroke: white;
+ stroke-width: 3;
+ stroke-linecap: round;
+ stroke-linejoin: round;
+ }
+
  /* Responsive */
  @media (max-width: 968px) {
  .carousel-slide {
@@ -4610,7 +4655,14 @@
  </a>
  </div>
 
- <!-- Footer -->
+ <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 19V5M5 12l7-7 7 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <!-- Footer -->
  <footer>
  <div class="footer-logo">
  <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -5150,7 +5202,23 @@
  });
 
 
- </script>
+ // Scroll to Top Button functionality
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+window.addEventListener('scroll', () => {
+  const scrollBtn = document.getElementById('scrollToTop');
+  if (scrollBtn) {
+    if (window.pageYOffset > 300) {
+      scrollBtn.classList.add('visible');
+    } else {
+      scrollBtn.classList.remove('visible');
+    }
+  }
+});
+
+</script>
 
  <!-- Contact Section -->
  <section id="contact" style="min-height: 400px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 80px 20px;">
