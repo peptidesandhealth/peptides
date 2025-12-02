@@ -4764,7 +4764,7 @@
  function moveProductsCarousel(direction) {
  if (isProductsTransitioning) return;
  isProductsTransitioning = true;
- 
+
  currentProductsSlide += direction;
  if (currentProductsSlide < 0) {
  currentProductsSlide = totalProductsSlides - 1;
@@ -4773,7 +4773,13 @@
  }
  updateProductsCarousel();
  // resetProductsAutoPlay(); // Автоплей отключен
- 
+
+ // Прокрутка к началу карусели продуктов
+ const productsCarouselSection = document.getElementById('products-carousel');
+ if (productsCarouselSection) {
+ productsCarouselSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+ }
+
  setTimeout(() => {
  isProductsTransitioning = false;
  }, 600);
@@ -4782,11 +4788,17 @@
  function goToProductsSlide(index) {
  if (isProductsTransitioning) return;
  isProductsTransitioning = true;
- 
+
  currentProductsSlide = index;
  updateProductsCarousel();
  // resetProductsAutoPlay(); // Автоплей отключен
- 
+
+ // Прокрутка к началу карусели продуктов
+ const productsCarouselSection = document.getElementById('products-carousel');
+ if (productsCarouselSection) {
+ productsCarouselSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+ }
+
  setTimeout(() => {
  isProductsTransitioning = false;
  }, 600);
