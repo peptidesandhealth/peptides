@@ -308,6 +308,7 @@
 
  .slide-content {
  flex: 1;
+ text-align: center;
  }
 
  .slide-badge {
@@ -333,6 +334,7 @@
  -webkit-text-fill-color: transparent;
  background-clip: text;
  animation: gradientShift 8s ease infinite;
+ text-align: center;
  }
 
  .slide-description {
@@ -340,12 +342,14 @@
  color: var(--text-secondary);
  margin-bottom: 1.2rem;
  line-height: 1.6;
+ text-align: center;
  }
 
  .slide-features {
  display: flex;
  gap: 1rem;
  flex-wrap: wrap;
+ justify-content: center;
  }
 
  .feature-item {
@@ -4644,7 +4648,7 @@
  function moveCarousel(direction) {
  if (isTransitioning) return;
  isTransitioning = true;
- 
+
  currentSlide += direction;
  if (currentSlide < 0) {
  currentSlide = totalSlides - 1;
@@ -4652,7 +4656,13 @@
  currentSlide = 0;
  }
  updateCarousel();
- 
+
+ // Прокрутка к началу карусели
+ const heroSection = document.getElementById('hero');
+ if (heroSection) {
+ heroSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+ }
+
  setTimeout(() => {
  isTransitioning = false;
  }, 600);
@@ -4661,10 +4671,16 @@
  function goToSlide(index) {
  if (isTransitioning) return;
  isTransitioning = true;
- 
+
  currentSlide = index;
  updateCarousel();
- 
+
+ // Прокрутка к началу карусели
+ const heroSection = document.getElementById('hero');
+ if (heroSection) {
+ heroSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+ }
+
  setTimeout(() => {
  isTransitioning = false;
  }, 600);
