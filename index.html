@@ -172,6 +172,8 @@
  flex-shrink: 0;
  width: 20px;
  height: 20px;
+ pointer-events: none;
+
  }
 
  /* Contact Section Telegram Icon */
@@ -1299,6 +1301,11 @@
  .floating-telegram a:hover {
  transform: scale(1.1);
  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+ }
+
+
+ .floating-telegram svg {
+ pointer-events: none;
  }
 
  @keyframes pulse {
