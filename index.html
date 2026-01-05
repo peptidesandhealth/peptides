@@ -2533,34 +2533,6 @@
  }
  }
 
- /* White background removal for new product images (25-40) */
- /* Using backdrop filter and contrast adjustments */
- .product-image img[src$="25.png"],
- .product-image img[src$="26.png"],
- .product-image img[src$="27.png"],
- .product-image img[src$="28.png"],
- .product-image img[src$="29.png"],
- .product-image img[src$="30.png"],
- .product-image img[src$="31.png"],
- .product-image img[src$="32.png"],
- .product-image img[src$="33.png"],
- .product-image img[src$="34.png"],
- .product-image img[src$="35.png"],
- .product-image img[src$="36.png"],
- .product-image img[src$="37.png"],
- .product-image img[src$="38.png"],
- .product-image img[src$="39.png"],
- .product-image img[src$="40.png"] {
- /* Combination of filters to remove white background */
- filter:
-   drop-shadow(0 4px 12px rgba(59, 130, 246, 0.3))
-   contrast(1.1)
-   brightness(1.05);
- /* Background blend approach */
- background: transparent;
- mix-blend-mode: darken;
- }
-
  </style>
 </head>
 <body>
