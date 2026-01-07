@@ -2788,81 +2788,6 @@
  font-size: 16px;
  }
 
- /* Collapsed state for mobile cards */
- .product-card {
- padding: 1rem;
- cursor: pointer;
- transition: all 0.3s ease;
- }
-
- .product-card:not(.expanded) .product-image,
- .product-card:not(.expanded) .product-benefits,
- .product-card:not(.expanded) .product-price,
- .product-card:not(.expanded) .dosage-options {
- display: none;
- }
-
- .product-card:not(.expanded) .product-content {
- padding: 0.5rem 0;
- }
-
- .product-card:not(.expanded) {
- padding: 0.75rem 1rem 2.5rem 1rem;
- min-height: auto;
- }
-
- .product-card:not(.expanded) .product-name {
- font-size: 1rem;
- margin-bottom: 0.25rem;
- }
-
- .product-card:not(.expanded) .product-description {
- display: block;
- font-size: 0.875rem;
- line-height: 1.4;
- color: var(--text-secondary);
- margin-top: 0.5rem;
- opacity: 0.9;
- }
-
- .product-card::after {
- content: '▼';
- display: block !important;
- position: absolute;
- right: 1rem;
- top: 50%;
- transform: translateY(-50%);
- font-size: 0.875rem;
- color: var(--primary-color);
- transition: transform 0.3s ease;
- pointer-events: none;
- }
-
- .product-card.expanded::after {
- transform: translateY(-50%) rotate(180deg);
- top: 1rem;
- }
-
- .product-card:not(.expanded)::after {
- top: 50%;
- }
-
- .product-card.expanded {
- padding: 1rem;
- }
-
- .product-details-toggle {
- font-size: 1rem;
- padding: 0.9rem 1.2rem;
- min-height: 48px;
- touch-action: manipulation;
- -webkit-tap-highlight-color: transparent;
- }
-
- .product-details-toggle:active {
- transform: scale(0.97);
- background: linear-gradient(135deg, rgba(59, 130, 246, 0.4) 0%, rgba(129, 140, 248, 0.4) 100%);
- }
  }
 
  </style>
@@ -6511,55 +6436,6 @@ function selectDosage(productId, dosage, price, imageSrc, element) {
     }
   }
 }
-
-// Mobile product card collapse/expand functionality
-function toggleMobileCard(event) {
-  // Only work on mobile devices (max-width: 768px)
-  if (window.innerWidth > 768) return;
-
-  const card = event.currentTarget;
-
-  // Don't toggle if clicking on the details toggle button
-  if (event.target.closest('.product-details-toggle')) {
-    return;
-  }
-
-  card.classList.toggle('expanded');
-}
-
-// Initialize mobile card functionality on page load
-document.addEventListener('DOMContentLoaded', function() {
-  const productCards = document.querySelectorAll('.product-card');
-
-  productCards.forEach(card => {
-    // Add click event listener to each card
-    card.addEventListener('click', toggleMobileCard);
-
-    // On mobile, cards start collapsed
-    if (window.innerWidth <= 768) {
-      card.classList.remove('expanded');
-    }
-  });
-
-  // Re-check on window resize
-  let resizeTimer;
-  window.addEventListener('resize', function() {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(function() {
-      productCards.forEach(card => {
-        if (window.innerWidth > 768) {
-          // On desktop, remove collapsed state
-          card.classList.add('expanded');
-        } else {
-          // On mobile, ensure cards are collapsed by default
-          if (!card.classList.contains('expanded')) {
-            card.classList.remove('expanded');
-          }
-        }
-      });
-    }, 250);
-  });
-});
 
 // Search functionality
 const products = [
