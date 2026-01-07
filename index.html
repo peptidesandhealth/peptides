@@ -5943,13 +5943,21 @@
  function openProductModal(productId) {
  const modal = document.getElementById('productModal');
  
- // Get product card element
- const productCard = document.querySelector(`[onclick*="'${productId}'"]`).closest('.product-card');
- 
- if (!productCard) return;
+ // Get product card element by finding the button with onclick containing productId
+ const toggleButton = document.querySelector(`[onclick*="toggleProductDetails('${productId}')"]`);
+ if (!toggleButton) {
+   console.error('Toggle button not found for:', productId);
+   return;
+ }
+
+ const productCard = toggleButton.closest('.product-card');
+ if (!productCard) {
+   console.error('Product card not found for:', productId);
+   return;
+ }
  
  // Get product data from card
- const productName = productCard.querySelector('.product-name').textContent;
+ const productName = productCard.querySelector('.product-name')?.textContent || '';
 
  // Check if card has dosage options (consolidated card) or traditional structure
  const activeDosage = productCard.querySelector('.dosage-option.active');
@@ -5966,10 +5974,13 @@
    productPrice = productCard.querySelector('.product-price')?.textContent || '';
  }
 
- const productDescription = productCard.querySelector('.product-description').textContent;
+ const productDescription = productCard.querySelector('.product-description')?.textContent || '';
  const productImage = productCard.querySelector('.product-image img');
  const productBenefits = productCard.querySelectorAll('.product-benefits li');
- const fullDescription = productCard.querySelector('.product-full-description-content');
+
+ // Get full description from details section
+ const detailsSection = productCard.querySelector(`#details-${productId}`);
+ const fullDescription = detailsSection ? detailsSection.querySelector('.product-full-description-content') : null;
  
  // Fill modal with product data
  document.getElementById('modalProductName').textContent = productName;
