@@ -3622,97 +3622,32 @@
  </div>
  </div>
 
- <!-- Product 20: Tirzepatide 10mg -->
+ <!-- Product 21: Retatrutide -->
  <div class="product-card">
  <div class="product-image">
- <img src="2.png" alt="Тирзолайт (Tirzepatide) 10mg" style="max-width: 100%; max-height: 100%; object-fit: contain;">
- </div>
- <div class="product-content">
- <h3 class="product-name">Tirzepatide</h3>
- <span class="product-dose">10 mg</span>
- <p class="product-description">Современный пептид для эффективного снижения веса и контроля аппетита.</p>
- <ul class="product-benefits">
- <li>Снижение чувства голода</li>
- <li>Регуляция уровня инсулина</li>
- <li>Длительное чувство насыщения</li>
- </ul>
- <div class="product-price">10 000 ₽</div>
- 
- <div class="product-details-toggle" onclick="toggleProductDetails('tirzepatide10')">
- <span>Подробнее о препарате</span>
- <svg class="toggle-arrow" id="arrow-tirzepatide10" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
- <path d="M7 10l5 5 5-5z"/>
- </svg>
- </div>
-
- <div class="product-full-description" id="details-tirzepatide10">
- <div class="product-full-description-content">
- <p><strong>Тирзолайт (Tirzepatide)</strong> — это современный пептидный препарат, действующий как двойной агонист рецепторов GIP и GLP-1. Он был разработан для лечения сахарного диабета 2 типа, но в клинической практике получил широкое применение для эффективного снижения веса и контроля аппетита.</p>
-
- <h4>Как действует:</h4>
- <ul>
- <li>Снижает чувство голода и замедляет опорожнение желудка</li>
- <li>Регулирует уровень инсулина и глюкозы в крови</li>
- <li>Поддерживает длительное чувство насыщения</li>
- <li>Стимулирует расщепление жировых отложений</li>
- </ul>
-
- <h4>Эффективность:</h4>
- <p>Клинические исследования показали:</p>
- <ul>
- <li>Потеря до 15-20% массы тела в течение 3–6 месяцев</li>
- <li>Устойчивый контроль аппетита и пищевых привычек</li>
- <li>Улучшение показателей сахара, холестерина и артериального давления</li>
- </ul>
-
- <h4>Способ применения:</h4>
- <ul>
- <li>Инъекционно, 1 раз в неделю</li>
- <li>Начальная доза подбирается индивидуально</li>
- <li>Полный курс — от 8 до 24 недель, в зависимости от цели</li>
- </ul>
- <p>Перед применением рекомендуется консультация с врачом или специалистом.</p>
-
- <h4>Преимущества Тирзолайт:</h4>
- <ul>
- <li>Безопасен и клинически протестирован</li>
- <li>Подходит как мужчинам, так и женщинам</li>
- <li>Идеален для снижения веса при метаболическом синдроме и инсулинорезистентности</li>
- <li>Подходит в качестве поддержки в ЗОЖ, фитнесе и лечебном питании</li>
- </ul>
-
- <h4>Противопоказания:</h4>
- <ul>
- <li>Индивидуальная непереносимость компонентов</li>
- <li>Беременность и период лактации</li>
- <li>Возраст до 18 лет</li>
- <li>Наличие острых заболеваний ЖКТ или эндокринной системы — по согласованию с врачом</li>
- <li>Имеются иные противопоказания, перед применением проконсультируйтесь со специалистом</li>
- </ul>
-
- <div class="product-disclaimer">
- Не является лекарственным средством, не является БАД. Продукция предназначена исключительно для исследовательских целей и лабораторных исследований.
- </div>
- </div>
- </div>
- </div>
- </div>
-
- <!-- Product 21: Retatrutide 5mg -->
- <div class="product-card">
- <div class="product-image">
- <img src="3.png" alt="Реталайт (Retatrutide) 5mg" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+ <img src="3.png" alt="Реталайт (Retatrutide)" style="max-width: 100%; max-height: 100%; object-fit: contain;" id="img-retatrutide">
  </div>
  <div class="product-content">
  <h3 class="product-name">Retatrutide</h3>
- <span class="product-dose">5 mg</span>
+
+ <!-- Dosage selection -->
+ <div class="dosage-options">
+ <div class="dosage-option active" onclick="selectDosage('retatrutide', '5mg', '9 000 ₽', '3.png', this)">
+ <span class="dosage-label">5 mg</span>
+ <span class="dosage-price">9 000 ₽</span>
+ </div>
+ <div class="dosage-option" onclick="selectDosage('retatrutide', '10mg', '15 000 ₽', 'Реталайт10.PNG', this)">
+ <span class="dosage-label">10 mg</span>
+ <span class="dosage-price">15 000 ₽</span>
+ </div>
+ </div>
+
  <p class="product-description">Инновационный пептид для мощного снижения веса и контроля аппетита.</p>
  <ul class="product-benefits">
  <li>Снижение чувства голода</li>
  <li>Регуляция уровня сахара и инсулина</li>
  <li>Поддержка снижения жировой массы</li>
  </ul>
- <div class="product-price">9 000 ₽</div>
  
  <div class="product-details-toggle" onclick="toggleProductDetails('retatrutide')">
  <span>Подробнее о препарате</span>
@@ -3772,81 +3707,6 @@
  </div>
  </div>
  </div>
-
- <!-- Product 21.5: Retatrutide 10mg -->
-<div class="product-card">
-<div class="product-image">
-<img src="Реталайт10.PNG" alt="Реталайт (Retatrutide) 10mg" style="max-width: 100%; max-height: 100%; object-fit: contain;">
-</div>
-<div class="product-content">
-<h3 class="product-name">Retatrutide</h3>
-<span class="product-dose">10 mg</span>
-<p class="product-description">Инновационный пептид для мощного снижения веса и контроля аппетита.</p>
-<ul class="product-benefits">
-<li>Снижение чувства голода</li>
-<li>Регуляция уровня сахара и инсулина</li>
-<li>Поддержка снижения жировой массы</li>
-</ul>
-<div class="product-price">15 000 ₽</div>
-
-<div class="product-details-toggle" onclick="toggleProductDetails('retatrutide10')">
-<span>Подробнее о препарате</span>
-<svg class="toggle-arrow" id="arrow-retatrutide10" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M7 10l5 5 5-5z"/>
-</svg>
-</div>
-
-<div class="product-full-description" id="details-retatrutide10">
-<div class="product-full-description-content">
-<p><strong>Retatrutide</strong> — это инновационный пептидный препарат нового поколения, тройной агонист рецепторов GIP, GLP-1 и глюкагона (GCGR). Изначально разрабатывался для терапии ожирения и сахарного диабета 2 типа, а сейчас рассматривается как один из самых перспективных средств для выраженного снижения веса и контроля пищевого поведения.</p>
-
-<h4>Как действует:</h4>
-<ul>
-<li>Сильно снижает чувство голода и тягу к сладкому</li>
-<li>Замедляет опорожнение желудка, продлевая чувство сытости после еды</li>
-<li>Регулирует уровень инсулина и глюкозы в крови, улучшает чувствительность к инсулину</li>
-<li>Активирует процессы расщепления жировых отложений и повышает расход энергии</li>
-<li>Помогает формировать новые, более здоровые пищевые привычки за счёт устойчивого контроля аппетита</li>
-</ul>
-
-<h4>Эффективность (по данным клинических исследований):</h4>
-<ul>
-<li>Значимое снижение массы тела вплоть до двузначных процентов от исходного веса при курсовом применении</li>
-<li>Выраженное и устойчивое снижение аппетита</li>
-<li>Улучшение показателей углеводного обмена, липидного профиля и артериального давления у пациентов с избыточной массой тела и метаболическими нарушениями</li>
-</ul>
-
-<h4>Способ применения:</h4>
-<ul>
-<li>В клинических исследованиях препарат вводится подкожно, 1 раз в неделю</li>
-<li>Доза и схема титрации подбираются врачом индивидуально</li>
-<li>Продолжительность курса зависит от исходного веса, сопутствующих заболеваний и поставленных целей</li>
-</ul>
-<p>Обязательно требуется консультация врача или профильного специалиста. Самостоятельное применение и подбор доз строго не рекомендуются.</p>
-
-<h4>Преимущества Retatrutide:</h4>
-<ul>
-<li>Один из самых перспективных пептидов для снижения веса по данным текущих исследований</li>
-<li>Подходит как мужчинам, так и женщинам с избыточной массой тела и метаболическими нарушениями</li>
-<li>Может использоваться как часть комплексной программы: ЗОЖ, диета, фитнес, работа с пищевым поведением</li>
-</ul>
-
-<h4>Противопоказания:</h4>
-<ul>
-<li>Индивидуальная непереносимость компонентов</li>
-<li>Беременность и период лактации</li>
-<li>Возраст до 18 лет</li>
-<li>Тяжёлые острые заболевания ЖКТ, печени, поджелудочной железы, эндокринной системы — только по согласованию с врачом</li>
-<li>Имеются и иные противопоказания, перед применением необходима консультация специалиста</li>
-</ul>
-
-<div class="product-disclaimer">
-Не является лекарственным средством, не является БАД. Продукция предназначена исключительно для исследовательских целей и лабораторных исследований.
-</div>
-</div>
-</div>
-</div>
-</div>
 
 <!-- Product 22: AOD9604 5mg -->
  <div class="product-card">
@@ -4542,21 +4402,36 @@
  </div>
  </div>
 
- <!-- Product 27: Epithalon 10mg -->
+ <!-- Product 27: Epithalon -->
  <div class="product-card">
  <div class="product-image">
- <img src="9.png" alt="Epithalon 10mg" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+ <img src="9.png" alt="Epithalon" style="max-width: 100%; max-height: 100%; object-fit: contain;" id="img-epithalon">
  </div>
  <div class="product-content">
  <h3 class="product-name">Epithalon</h3>
- <span class="product-dose">10 mg</span>
+
+ <!-- Dosage selection -->
+ <div class="dosage-options">
+ <div class="dosage-option active" onclick="selectDosage('epithalon', '10mg', '2 000 ₽', '9.png', this)">
+ <span class="dosage-label">10 mg</span>
+ <span class="dosage-price">2 000 ₽</span>
+ </div>
+ <div class="dosage-option" onclick="selectDosage('epithalon', '40mg', '7 000 ₽', 'epithalon40.PNG', this)">
+ <span class="dosage-label">40 mg</span>
+ <span class="dosage-price">7 000 ₽</span>
+ </div>
+ <div class="dosage-option" onclick="selectDosage('epithalon', '50mg', '9 000 ₽', 'epithalon50.PNG', this)">
+ <span class="dosage-label">50 mg</span>
+ <span class="dosage-price">9 000 ₽</span>
+ </div>
+ </div>
+
  <p class="product-description">Геропротектор для замедления старения и восстановления циркадных ритмов.</p>
  <ul class="product-benefits">
  <li>Замедление старения</li>
  <li>Улучшение сна и циркадных ритмов</li>
  <li>Восстановление гормонального фона</li>
  </ul>
- <div class="product-price">2 000 ₽</div>
  
  <div class="product-details-toggle" onclick="toggleProductDetails('epithalon')">
  <span>Подробнее о препарате</span>
@@ -4625,174 +4500,6 @@
  </div>
  </div>
  </div>
-
- <!-- Product 27.5: Epithalon 40mg -->
-<div class="product-card">
-<div class="product-image">
-<img src="epithalon40.PNG" alt="Epithalon 40mg" style="max-width: 100%; max-height: 100%; object-fit: contain;">
-</div>
-<div class="product-content">
-<h3 class="product-name">Epithalon</h3>
-<span class="product-dose">40 mg</span>
-<p class="product-description">Геропротектор для замедления старения и восстановления циркадных ритмов.</p>
-<ul class="product-benefits">
-<li>Замедление старения</li>
-<li>Улучшение сна и циркадных ритмов</li>
-<li>Восстановление гормонального фона</li>
-</ul>
-<div class="product-price">7 000 ₽</div>
-
-<div class="product-details-toggle" onclick="toggleProductDetails('epithalon40')">
-<span>Подробнее о препарате</span>
-<svg class="toggle-arrow" id="arrow-epithalon40" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M7 10l5 5 5-5z"/>
-</svg>
-</div>
-
-<div class="product-full-description" id="details-epithalon40">
-<div class="product-full-description-content">
-<p><strong>Epithalon (эпиталамин, эпиталон)</strong> — это синтетический пептид, аналог естественного вещества, выделяемого эпифизом (шишковидной железой). Он восполняет дефицит мелатонина и регулирует работу биологических часов, что делает его одним из самых эффективных средств в превентивной и антиэйдж медицине.</p>
-<p><strong>Активное вещество:</strong> тетрапептид Ala-Glu-Asp-Gly.</p>
-
-<h4>Как работает:</h4>
-<ul>
-<li>Стимулирует выработку теломеразы — фермента, восстанавливающего теломеры (длина которых напрямую связана со старением)</li>
-<li>Нормализует циркадные ритмы, восстанавливает сон и гормональный фон</li>
-<li>Защищает клетки от окислительного стресса и преждевременной гибели</li>
-<li>Улучшает работу эндокринной и иммунной систем</li>
-</ul>
-
-<h4>Основные эффекты:</h4>
-<ul>
-<li>Улучшение сна, восстановления, настроения и когнитивной функции</li>
-<li>Замедление биологического старения, защита ДНК</li>
-<li>Повышение стрессоустойчивости и адаптивности организма</li>
-<li>Снижение риска возрастных заболеваний (сердечно-сосудистых, онкологических, нейродегенеративных)</li>
-<li>Стабилизация уровня гормонов: мелатонина, кортизола, ДГЭА</li>
-</ul>
-
-<h4>‍‍ Для кого подходит:</h4>
-<ul>
-<li>Людям после 30–35 лет — для профилактики старения</li>
-<li>Тем, кто испытывает хронический стресс, бессонницу, упадок сил</li>
-<li>После перенесённых заболеваний или операций — для восстановления</li>
-<li>Спортсменам и biohacker'ам — как восстановительный и поддерживающий препарат</li>
-</ul>
-
-<h4>Способ применения:</h4>
-<ul>
-<li>Подкожно, 1 раз в день (чаще — перед сном)</li>
-<li>Курс: 10–20 дней, возможно повторение 2–3 раза в год</li>
-<li>Дозировка: 5–10 мг в сутки или по схеме, назначенной специалистом</li>
-<li>Можно комбинировать с другими пептидами (например, GHK-Cu, Thymalin) для усиления anti-age эффекта</li>
-</ul>
-
-<h4>Преимущества Epithalon:</h4>
-<ul>
-<li>Один из самых изученных пептидов (разработан в Институте биорегуляции и геронтологии, РФ)</li>
-<li>Безопасен, не токсичен, не влияет на гормональную ось</li>
-<li>Эффективен даже при краткосрочном применении</li>
-</ul>
-
-<h4>Противопоказания:</h4>
-<ul>
-<li>Индивидуальная непереносимость</li>
-<li>Онкологические заболевания в активной стадии</li>
-<li>Беременность и лактация</li>
-<li>Возраст до 18 лет</li>
-</ul>
-
-<div class="product-disclaimer">
-Не является лекарственным средством, не является БАД. Продукция предназначена исключительно для исследовательских целей и лабораторных исследований.
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<!-- Product 27.6: Epithalon 50mg -->
-<div class="product-card">
-<div class="product-image">
-<img src="epithalon50.PNG" alt="Epithalon 50mg" style="max-width: 100%; max-height: 100%; object-fit: contain;">
-</div>
-<div class="product-content">
-<h3 class="product-name">Epithalon</h3>
-<span class="product-dose">50 mg</span>
-<p class="product-description">Геропротектор для замедления старения и восстановления циркадных ритмов.</p>
-<ul class="product-benefits">
-<li>Замедление старения</li>
-<li>Улучшение сна и циркадных ритмов</li>
-<li>Восстановление гормонального фона</li>
-</ul>
-<div class="product-price">9 000 ₽</div>
-
-<div class="product-details-toggle" onclick="toggleProductDetails('epithalon50')">
-<span>Подробнее о препарате</span>
-<svg class="toggle-arrow" id="arrow-epithalon50" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M7 10l5 5 5-5z"/>
-</svg>
-</div>
-
-<div class="product-full-description" id="details-epithalon50">
-<div class="product-full-description-content">
-<p><strong>Epithalon (эпиталамин, эпиталон)</strong> — это синтетический пептид, аналог естественного вещества, выделяемого эпифизом (шишковидной железой). Он восполняет дефицит мелатонина и регулирует работу биологических часов, что делает его одним из самых эффективных средств в превентивной и антиэйдж медицине.</p>
-<p><strong>Активное вещество:</strong> тетрапептид Ala-Glu-Asp-Gly.</p>
-
-<h4>Как работает:</h4>
-<ul>
-<li>Стимулирует выработку теломеразы — фермента, восстанавливающего теломеры (длина которых напрямую связана со старением)</li>
-<li>Нормализует циркадные ритмы, восстанавливает сон и гормональный фон</li>
-<li>Защищает клетки от окислительного стресса и преждевременной гибели</li>
-<li>Улучшает работу эндокринной и иммунной систем</li>
-</ul>
-
-<h4>Основные эффекты:</h4>
-<ul>
-<li>Улучшение сна, восстановления, настроения и когнитивной функции</li>
-<li>Замедление биологического старения, защита ДНК</li>
-<li>Повышение стрессоустойчивости и адаптивности организма</li>
-<li>Снижение риска возрастных заболеваний (сердечно-сосудистых, онкологических, нейродегенеративных)</li>
-<li>Стабилизация уровня гормонов: мелатонина, кортизола, ДГЭА</li>
-</ul>
-
-<h4>‍‍ Для кого подходит:</h4>
-<ul>
-<li>Людям после 30–35 лет — для профилактики старения</li>
-<li>Тем, кто испытывает хронический стресс, бессонницу, упадок сил</li>
-<li>После перенесённых заболеваний или операций — для восстановления</li>
-<li>Спортсменам и biohacker'ам — как восстановительный и поддерживающий препарат</li>
-</ul>
-
-<h4>Способ применения:</h4>
-<ul>
-<li>Подкожно, 1 раз в день (чаще — перед сном)</li>
-<li>Курс: 10–20 дней, возможно повторение 2–3 раза в год</li>
-<li>Дозировка: 5–10 мг в сутки или по схеме, назначенной специалистом</li>
-<li>Можно комбинировать с другими пептидами (например, GHK-Cu, Thymalin) для усиления anti-age эффекта</li>
-</ul>
-
-<h4>Преимущества Epithalon:</h4>
-<ul>
-<li>Один из самых изученных пептидов (разработан в Институте биорегуляции и геронтологии, РФ)</li>
-<li>Безопасен, не токсичен, не влияет на гормональную ось</li>
-<li>Эффективен даже при краткосрочном применении</li>
-</ul>
-
-<h4>Противопоказания:</h4>
-<ul>
-<li>Индивидуальная непереносимость</li>
-<li>Онкологические заболевания в активной стадии</li>
-<li>Беременность и лактация</li>
-<li>Возраст до 18 лет</li>
-</ul>
-
-<div class="product-disclaimer">
-Не является лекарственным средством, не является БАД. Продукция предназначена исключительно для исследовательских целей и лабораторных исследований.
-</div>
-</div>
-</div>
-</div>
-</div>
 
 <!-- Product 27.7: KPV 10mg -->
 <div class="product-card">
@@ -5237,21 +4944,36 @@
  </div>
  </div>
 
- <!-- Product 31: NAD+ 100mg -->
+ <!-- Product 31: NAD+ -->
  <div class="product-card">
  <div class="product-image">
- <img src="13.png" alt="NAD+ 100mg" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+ <img src="13.png" alt="NAD+" style="max-width: 100%; max-height: 100%; object-fit: contain;" id="img-nad">
  </div>
  <div class="product-content">
  <h3 class="product-name">NAD+</h3>
- <span class="product-dose">100 mg</span>
- <p class="product-description">Базовая дозировка коэнзима для начального использования и профилактики.</p>
+
+ <!-- Dosage selection -->
+ <div class="dosage-options">
+ <div class="dosage-option active" onclick="selectDosage('nad', '100mg', '8 000 ₽', '13.png', this)">
+ <span class="dosage-label">100 mg</span>
+ <span class="dosage-price">8 000 ₽</span>
+ </div>
+ <div class="dosage-option" onclick="selectDosage('nad', '500mg', '32 000 ₽', '14.png', this)">
+ <span class="dosage-label">500 mg</span>
+ <span class="dosage-price">32 000 ₽</span>
+ </div>
+ <div class="dosage-option" onclick="selectDosage('nad', '1000mg', '50 000 ₽', '15.png', this)">
+ <span class="dosage-label">1000 mg</span>
+ <span class="dosage-price">50 000 ₽</span>
+ </div>
+ </div>
+
+ <p class="product-description">Коэнзим для клеточного омоложения и энергии. Выберите дозировку в зависимости от целей.</p>
  <ul class="product-benefits">
  <li>Anti-age терапия</li>
  <li>Улучшение памяти, сна, выносливости</li>
  <li>Восстановление при стрессе</li>
  </ul>
- <div class="product-price">8 000 ₽</div>
  
  <div class="product-details-toggle" onclick="toggleProductDetails('nad100')">
  <span>Подробнее о препарате</span>
@@ -5263,175 +4985,6 @@
  <div class="product-full-description" id="details-nad100">
  <div class="product-full-description-content">
  <p><strong>NAD+ (никотинамидадениндинуклеотид)</strong> — это жизненно важный кофермент, участвующий в энергетическом обмене, репарации ДНК и регуляции клеточного старения. С возрастом уровень NAD+ резко снижается, что напрямую связано с замедлением обменных процессов, ухудшением работы мозга и снижением восстановительных функций организма.</p>
- <p>Применяется в anti-age терапии, нейропротекции, детоксикации и восстановлении при стрессе и хронической усталости.</p>
-
- <h4>Механизм действия:</h4>
- <ul>
- <li>Участвует в работе митохондрий — повышает уровень клеточной энергии (АТФ)</li>
- <li>Активирует ферменты sirtuins и PARP, ответственные за долголетие и восстановление ДНК</li>
- <li>Поддерживает функции мозга, печени, сердца и мышц</li>
- <li>Способствует глубокому восстановлению организма на клеточном уровне</li>
- </ul>
-
- <h4>Основные эффекты:</h4>
- <ul>
- <li>Повышение энергии, выносливости и ментальной ясности</li>
- <li>Улучшение сна, памяти, когнитивных функций</li>
- <li>Замедление биологического старения, поддержка ДНК-репарации</li>
- <li>Восстановление после нагрузок, стрессов, алкоголя, токсинов</li>
- <li>Поддержка в антиэйдж-программах и при хронической усталости</li>
- </ul>
-
- <h4>Для кого подходит:</h4>
- <ul>
- <li>Тем, кто чувствует усталость, снижение концентрации, ухудшение памяти</li>
- <li>Людям старше 30 лет — для поддержки энергии и профилактики старения</li>
- <li>После перенесённых инфекций, отравлений, нагрузок, бессонницы</li>
- <li>Спортсменам, бизнесменам, biohacker'ам</li>
- </ul>
-
- <h4>Способ применения:</h4>
- <ul>
- <li>Внутривенно (капельно): 250–1000 мг на процедуру</li>
- <li>Курс: от 5 до 10 капельниц или по назначению врача</li>
- <li>Возможна также пероральная форма: NAD+ или предшественники (NMN, NR), но с меньшей биодоступностью</li>
- <li>Применение под наблюдением специалиста. Возможно сочетание с глутатионом, альфа-липоевой кислотой и другими нутрицевтиками</li>
- </ul>
-
- <h4>Преимущества NAD+:</h4>
- <ul>
- <li>Один из наиболее изученных и безопасных антиэйдж-коферментов</li>
- <li>Не гормональный, не пептидный, без привыкания</li>
- <li>Подходит для длительного применения</li>
- <li>Совместим с другими пептидными и восстановительными программами</li>
- </ul>
-
- <h4>Противопоказания:</h4>
- <ul>
- <li>Индивидуальная непереносимость</li>
- <li>Беременность и лактация</li>
- <li>Острые воспалительные процессы (по согласованию с врачом)</li>
- </ul>
-
- <div class="product-disclaimer">
- Не является лекарственным средством, не является БАД. Продукция предназначена исключительно для исследовательских целей и лабораторных исследований.
- </div>
- </div>
- </div>
- </div>
- </div>
-
- <!-- Product 32: NAD+ 500mg -->
- <div class="product-card">
- <div class="product-image">
- <img src="14.png" alt="NAD+ 500mg" style="max-width: 100%; max-height: 100%; object-fit: contain;">
- </div>
- <div class="product-content">
- <h3 class="product-name">NAD+</h3>
- <span class="product-dose">500 mg</span>
- <p class="product-description">Средняя дозировка коэнзима для поддержания энергетического баланса.</p>
- <ul class="product-benefits">
- <li>Anti-age терапия</li>
- <li>Улучшение памяти, сна, выносливости</li>
- <li>Восстановление при стрессе</li>
- </ul>
- <div class="product-price">32 000 ₽</div>
- 
- <div class="product-details-toggle" onclick="toggleProductDetails('nad500')">
- <span>Подробнее о препарате</span>
- <svg class="toggle-arrow" id="arrow-nad500" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
- <path d="M7 10l5 5 5-5z"/>
- </svg>
- </div>
-
- <div class="product-full-description" id="details-nad500">
- <div class="product-full-description-content">
- <p><strong>NAD+ (никотинамидадениндинуклеотид)</strong> — это жизненно важный кофермент, участвующий в энергетическом обмене, репарации ДНК и регуляции клеточного старения. С возрастом уровень NAD+ резко снижается, что напрямую связано с замедлением обменных процессов, ухудшением работы мозга и снижением восстановительных функций организма.</p>
- <p>Применяется в anti-age терапии, нейропротекции, детоксикации и восстановлении при стрессе и хронической усталости.</p>
-
- <h4>Механизм действия:</h4>
- <ul>
- <li>Участвует в работе митохондрий — повышает уровень клеточной энергии (АТФ)</li>
- <li>Активирует ферменты sirtuins и PARP, ответственные за долголетие и восстановление ДНК</li>
- <li>Поддерживает функции мозга, печени, сердца и мышц</li>
- <li>Способствует глубокому восстановлению организма на клеточном уровне</li>
- </ul>
-
- <h4>Основные эффекты:</h4>
- <ul>
- <li>Повышение энергии, выносливости и ментальной ясности</li>
- <li>Улучшение сна, памяти, когнитивных функций</li>
- <li>Замедление биологического старения, поддержка ДНК-репарации</li>
- <li>Восстановление после нагрузок, стрессов, алкоголя, токсинов</li>
- <li>Поддержка в антиэйдж-программах и при хронической усталости</li>
- </ul>
-
- <h4>Для кого подходит:</h4>
- <ul>
- <li>Тем, кто чувствует усталость, снижение концентрации, ухудшение памяти</li>
- <li>Людям старше 30 лет — для поддержки энергии и профилактики старения</li>
- <li>После перенесённых инфекций, отравлений, нагрузок, бессонницы</li>
- <li>Спортсменам, бизнесменам, biohacker'ам</li>
- </ul>
-
- <h4>Способ применения:</h4>
- <ul>
- <li>Внутривенно (капельно): 250–1000 мг на процедуру</li>
- <li>Курс: от 5 до 10 капельниц или по назначению врача</li>
- <li>Возможна также пероральная форма: NAD+ или предшественники (NMN, NR), но с меньшей биодоступностью</li>
- <li>Применение под наблюдением специалиста. Возможно сочетание с глутатионом, альфа-липоевой кислотой и другими нутрицевтиками</li>
- </ul>
-
- <h4>Преимущества NAD+:</h4>
- <ul>
- <li>Один из наиболее изученных и безопасных антиэйдж-коферментов</li>
- <li>Не гормональный, не пептидный, без привыкания</li>
- <li>Подходит для длительного применения</li>
- <li>Совместим с другими пептидными и восстановительными программами</li>
- </ul>
-
- <h4>Противопоказания:</h4>
- <ul>
- <li>Индивидуальная непереносимость</li>
- <li>Беременность и лактация</li>
- <li>Острые воспалительные процессы (по согласованию с врачом)</li>
- </ul>
-
- <div class="product-disclaimer">
- Не является лекарственным средством, не является БАД. Продукция предназначена исключительно для исследовательских целей и лабораторных исследований.
- </div>
- </div>
- </div>
- </div>
- </div>
-
- <!-- Product 33: NAD+ 1000mg -->
- <div class="product-card">
- <div class="product-image">
- <img src="15.png" alt="NAD+ 1000mg" style="max-width: 100%; max-height: 100%; object-fit: contain;">
- </div>
- <div class="product-content">
- <h3 class="product-name">NAD+</h3>
- <span class="product-dose">1000 mg</span>
- <p class="product-description">Максимальная дозировка коэнзима для полного курса восстановления и поддержания баланса в организме.</p>
- <ul class="product-benefits">
- <li>Anti-age терапия</li>
- <li>Улучшение памяти, сна, выносливости</li>
- <li>Восстановление при стрессе</li>
- </ul>
- <div class="product-price">50 000 ₽</div>
- 
- <div class="product-details-toggle" onclick="toggleProductDetails('nad1000')">
- <span>Подробнее о препарате</span>
- <svg class="toggle-arrow" id="arrow-nad1000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
- <path d="M7 10l5 5 5-5z"/>
- </svg>
- </div>
-
- <div class="product-full-description" id="details-nad1000">
- <div class="product-full-description-content">
- <p><strong>NAD+ (никотинамидадениндинуклеотид)</strong> — это жизненно важный кофермент, участвующий в энергетическом обмене, репарации ДНК и регуляции клеточного старения. С возрастом уровень NAD+ резко снижается, что напрямую связано с замедлением обменных процессов, ухудшением работы мозга и снижением восстановительных функций организма.</p>
- 
  <p>Применяется в anti-age терапии, нейропротекции, детоксикации и восстановлении при стрессе и хронической усталости.</p>
 
  <h4>Механизм действия:</h4>
@@ -6789,10 +6342,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Search functionality
 const products = [
-  { name: 'Тирзолайт (Tirzepatide) 5mg', id: 'tirzepatide', keywords: ['тирзолайт', 'tirzepatide', '5mg'] },
-  { name: 'Тирзолайт (Tirzepatide) 10mg', id: 'tirzepatide10', keywords: ['тирзолайт', 'tirzepatide', '10mg'] },
-  { name: 'Реталайт (Retatrutide) 5mg', id: 'retatrutide', keywords: ['реталайт', 'retatrutide', '5mg'] },
-  { name: 'Реталайт (Retatrutide) 10mg', id: 'retatrutide10', keywords: ['реталайт', 'retatrutide', '10mg'] },
+  { name: 'Tirzepatide (Тирзолайт)', id: 'tirzepatide', keywords: ['тирзолайт', 'tirzepatide', '5mg', '10mg'] },
+  { name: 'Retatrutide (Реталайт)', id: 'retatrutide', keywords: ['реталайт', 'retatrutide', '5mg', '10mg'] },
   { name: 'AOD9604 5 mg', id: 'aod9604', keywords: ['aod9604', 'aod', '5mg'] },
   { name: '5-Amino-1MQ 5mg', id: 'amino1mq', keywords: ['5-amino-1mq', 'amino', '5mg'] },
   { name: 'IGF-1LR3 1mg', id: 'igf1lr3', keywords: ['igf-1lr3', 'igf', '1mg'] },
@@ -6803,18 +6354,14 @@ const products = [
   { name: 'CLOW 80mg', id: 'clow80', keywords: ['clow', 'клоу', '80mg'] },
   { name: 'Snap-8 10mg', id: 'snap8', keywords: ['snap-8', 'snap8', '10mg'] },
   { name: 'GHK-Cu 50mg', id: 'ghkcu', keywords: ['ghk-cu', 'ghk', '50mg'] },
-  { name: 'Epithalon 10mg', id: 'epithalon', keywords: ['epithalon', 'эпиталон', '10mg'] },
-  { name: 'Epithalon 40mg', id: 'epithalon40', keywords: ['epithalon', 'эпиталон', '40mg'] },
-  { name: 'Epithalon 50mg', id: 'epithalon50', keywords: ['epithalon', 'эпиталон', '50mg'] },
+  { name: 'Epithalon (Эпиталон)', id: 'epithalon', keywords: ['epithalon', 'эпиталон', '10mg', '40mg', '50mg'] },
   { name: 'KPV 10mg', id: 'kpv10', keywords: ['kpv', 'кпв', '10mg'] },
   { name: 'BPC-157 10mg', id: 'bpc157-10', keywords: ['bpc-157', 'bpc', '10mg'] },
   { name: 'TB-500 5 mg', id: 'tb500', keywords: ['tb-500', 'tb500', '5mg'] },
   { name: 'BPC-157 + TB-500 5 mg + 5 mg', id: 'bpctb500', keywords: ['bpc-157', 'tb-500', 'bpc', 'tb', '5mg'] },
   { name: 'MOTS-C 10mg', id: 'motsc', keywords: ['mots-c', 'mots', '10mg'] },
   { name: 'SS-31 10mg', id: 'ss31', keywords: ['ss-31', 'ss31', '10mg'] },
-  { name: 'NAD+ 100mg', id: 'nad100', keywords: ['nad+', 'nad', '100mg'] },
-  { name: 'NAD+ 500mg', id: 'nad500', keywords: ['nad+', 'nad', '500mg'] },
-  { name: 'NAD+ 1000mg', id: 'nad1000', keywords: ['nad+', 'nad', '1000mg'] },
+  { name: 'NAD+', id: 'nad100', keywords: ['nad+', 'nad', '100mg', '500mg', '1000mg'] },
   { name: 'Kisspeptin-10 5mg', id: 'kisspeptin10', keywords: ['kisspeptin', 'киспептин', '5mg'] },
   { name: 'Oxytocin 5mg', id: 'oxytocin', keywords: ['oxytocin', 'окситоцин', '5mg'] },
   { name: 'PT-141 10mg', id: 'pt141', keywords: ['pt-141', 'pt141', '10mg'] },
