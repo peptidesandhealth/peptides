@@ -1421,6 +1421,200 @@
  stroke-linejoin: round;
  }
 
+ /* Search Button */
+ .search-button {
+ position: fixed;
+ bottom: 140px;
+ right: 20px;
+ width: 50px;
+ height: 50px;
+ background: linear-gradient(135deg, rgba(59, 130, 246, 0.9) 0%, rgba(129, 140, 248, 0.9) 100%);
+ border: 2px solid rgba(59, 130, 246, 0.5);
+ border-radius: 50%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ cursor: pointer;
+ opacity: 1;
+ visibility: visible;
+ transition: all 0.3s ease;
+ box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+ z-index: 999;
+ }
+
+ .search-button:hover {
+ transform: translateY(-5px);
+ box-shadow: 0 6px 16px rgba(59, 130, 246, 0.6);
+ background: linear-gradient(135deg, rgba(96, 165, 250, 0.9) 0%, rgba(129, 140, 248, 0.9) 100%);
+ }
+
+ .search-button:active {
+ transform: translateY(-2px);
+ }
+
+ .search-button svg {
+ width: 24px;
+ height: 24px;
+ stroke: white;
+ stroke-width: 2;
+ fill: none;
+ }
+
+ /* Search Panel */
+ .search-panel {
+ position: fixed;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%) scale(0.9);
+ width: 90%;
+ max-width: 500px;
+ background: linear-gradient(135deg, rgba(30, 58, 95, 0.98) 0%, rgba(30, 41, 59, 0.98) 100%);
+ border: 2px solid rgba(59, 130, 246, 0.5);
+ border-radius: 16px;
+ padding: 2rem;
+ box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+ z-index: 1001;
+ opacity: 0;
+ visibility: hidden;
+ transition: all 0.3s ease;
+ backdrop-filter: blur(20px);
+ }
+
+ .search-panel.active {
+ opacity: 1;
+ visibility: visible;
+ transform: translate(-50%, -50%) scale(1);
+ }
+
+ .search-overlay {
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background: rgba(0, 0, 0, 0.7);
+ z-index: 1000;
+ opacity: 0;
+ visibility: hidden;
+ transition: all 0.3s ease;
+ }
+
+ .search-overlay.active {
+ opacity: 1;
+ visibility: visible;
+ }
+
+ .search-header {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin-bottom: 1.5rem;
+ }
+
+ .search-header h3 {
+ color: var(--text-primary);
+ font-size: 1.5rem;
+ font-weight: 600;
+ }
+
+ .search-close {
+ background: none;
+ border: none;
+ color: var(--text-primary);
+ font-size: 2rem;
+ cursor: pointer;
+ padding: 0;
+ width: 32px;
+ height: 32px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ transition: transform 0.2s ease;
+ }
+
+ .search-close:hover {
+ transform: rotate(90deg);
+ color: var(--primary-color);
+ }
+
+ .search-input-wrapper {
+ position: relative;
+ margin-bottom: 1rem;
+ }
+
+ .search-input {
+ width: 100%;
+ padding: 1rem 1rem 1rem 3rem;
+ background: rgba(15, 23, 42, 0.6);
+ border: 2px solid rgba(59, 130, 246, 0.3);
+ border-radius: 12px;
+ color: var(--text-primary);
+ font-size: 1rem;
+ outline: none;
+ transition: all 0.3s ease;
+ }
+
+ .search-input:focus {
+ border-color: var(--primary-color);
+ box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+ }
+
+ .search-input::placeholder {
+ color: var(--text-secondary);
+ }
+
+ .search-icon {
+ position: absolute;
+ left: 1rem;
+ top: 50%;
+ transform: translateY(-50%);
+ width: 20px;
+ height: 20px;
+ stroke: var(--text-secondary);
+ pointer-events: none;
+ }
+
+ .search-results {
+ max-height: 400px;
+ overflow-y: auto;
+ margin-top: 1rem;
+ }
+
+ .search-result-item {
+ padding: 1rem;
+ background: rgba(15, 23, 42, 0.4);
+ border: 1px solid rgba(59, 130, 246, 0.2);
+ border-radius: 8px;
+ margin-bottom: 0.5rem;
+ cursor: pointer;
+ transition: all 0.3s ease;
+ }
+
+ .search-result-item:hover {
+ background: rgba(59, 130, 246, 0.2);
+ border-color: var(--primary-color);
+ transform: translateX(5px);
+ }
+
+ .search-result-name {
+ color: var(--text-primary);
+ font-weight: 600;
+ font-size: 1rem;
+ margin-bottom: 0.25rem;
+ }
+
+ .search-result-description {
+ color: var(--text-secondary);
+ font-size: 0.875rem;
+ }
+
+ .search-no-results {
+ text-align: center;
+ padding: 2rem;
+ color: var(--text-secondary);
+ font-size: 1rem;
+ }
+
  /* Responsive */
  @media (max-width: 968px) {
  .carousel-slide {
@@ -5724,6 +5918,40 @@
  </a>
  </div>
 
+ <!-- Search Button -->
+  <button class="search-button" id="searchButton" onclick="toggleSearch()">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="11" cy="11" r="8" stroke="white" stroke-width="2"/>
+      <path d="M21 21l-4.35-4.35" stroke="white" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </button>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay" id="searchOverlay" onclick="closeSearch()"></div>
+
+  <!-- Search Panel -->
+  <div class="search-panel" id="searchPanel">
+    <div class="search-header">
+      <h3>Поиск препаратов</h3>
+      <button class="search-close" onclick="closeSearch()">&times;</button>
+    </div>
+    <div class="search-input-wrapper">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+        <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <input
+        type="text"
+        class="search-input"
+        id="searchInput"
+        placeholder="Введите название препарата..."
+        oninput="performSearch()"
+        autocomplete="off"
+      >
+    </div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+
  <!-- Scroll to Top Button -->
   <button class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -6330,7 +6558,142 @@
  });
 
 
- // Scroll to Top Button functionality
+ // Search functionality
+const products = [
+  { name: 'Тирзолайт (Tirzepatide) 5mg', id: 'product19', keywords: ['тирзолайт', 'tirzepatide', '5mg'] },
+  { name: 'Тирзолайт (Tirzepatide) 10mg', id: 'product20', keywords: ['тирзолайт', 'tirzepatide', '10mg'] },
+  { name: 'Реталайт (Retatrutide) 5mg', id: 'product21', keywords: ['реталайт', 'retatrutide', '5mg'] },
+  { name: 'Реталайт (Retatrutide) 10mg', id: 'product21.5', keywords: ['реталайт', 'retatrutide', '10mg'] },
+  { name: 'AOD9604 5 mg', id: 'product22', keywords: ['aod9604', 'aod', '5mg'] },
+  { name: '5-Amino-1MQ 5mg', id: 'product22.5', keywords: ['5-amino-1mq', 'amino', '5mg'] },
+  { name: 'IGF-1LR3 1mg', id: 'product22.6', keywords: ['igf-1lr3', 'igf', '1mg'] },
+  { name: 'Ipamorelin + CJC-1295 10 mg', id: 'product23', keywords: ['ipamorelin', 'cjc-1295', 'cjc', '10mg'] },
+  { name: 'Thymosin Alpha-1 10mg', id: 'product24', keywords: ['thymosin', 'alpha-1', 'тимозин', '10mg'] },
+  { name: 'LL-37 5mg', id: 'product24.5', keywords: ['ll-37', 'll37', '5mg'] },
+  { name: 'Glow 70mg', id: 'product25', keywords: ['glow', 'глоу', '70mg'] },
+  { name: 'CLOW 80mg', id: 'product25.5', keywords: ['clow', 'клоу', '80mg'] },
+  { name: 'Snap-8 10mg', id: 'product25.6', keywords: ['snap-8', 'snap8', '10mg'] },
+  { name: 'GHK-Cu 50mg', id: 'product26', keywords: ['ghk-cu', 'ghk', '50mg'] },
+  { name: 'Epithalon 10mg', id: 'product27', keywords: ['epithalon', 'эпиталон', '10mg'] },
+  { name: 'Epithalon 40mg', id: 'product27.5', keywords: ['epithalon', 'эпиталон', '40mg'] },
+  { name: 'Epithalon 50mg', id: 'product27.6', keywords: ['epithalon', 'эпиталон', '50mg'] },
+  { name: 'KPV 10mg', id: 'product27.7', keywords: ['kpv', 'кпв', '10mg'] },
+  { name: 'BPC-157 10mg', id: 'product28', keywords: ['bpc-157', 'bpc', '10mg'] },
+  { name: 'TB-500 5 mg', id: 'product28.5', keywords: ['tb-500', 'tb500', '5mg'] },
+  { name: 'BPC-157 + TB-500 5 mg + 5 mg', id: 'product29', keywords: ['bpc-157', 'tb-500', 'bpc', 'tb', '5mg'] },
+  { name: 'MOTS-C 10mg', id: 'product30', keywords: ['mots-c', 'mots', '10mg'] },
+  { name: 'SS-31 10mg', id: 'product30.5', keywords: ['ss-31', 'ss31', '10mg'] },
+  { name: 'NAD+ 100mg', id: 'product31', keywords: ['nad+', 'nad', '100mg'] },
+  { name: 'NAD+ 500mg', id: 'product32', keywords: ['nad+', 'nad', '500mg'] },
+  { name: 'NAD+ 1000mg', id: 'product33', keywords: ['nad+', 'nad', '1000mg'] },
+  { name: 'Kisspeptin-10 5mg', id: 'product34', keywords: ['kisspeptin', 'киспептин', '5mg'] },
+  { name: 'Oxytocin 5mg', id: 'product35', keywords: ['oxytocin', 'окситоцин', '5mg'] },
+  { name: 'PT-141 10mg', id: 'product36', keywords: ['pt-141', 'pt141', '10mg'] },
+  { name: 'Melanotan II 10mg', id: 'product36.5', keywords: ['melanotan', 'меланотан', '10mg'] },
+  { name: 'Pinealon 10mg', id: 'product36.6', keywords: ['pinealon', 'пинеалон', '10mg'] },
+  { name: 'Semax 10mg', id: 'product36.7', keywords: ['semax', 'семакс', '10mg'] },
+  { name: 'Selank 5mg', id: 'product36.8', keywords: ['selank', 'селанк', '5mg'] },
+  { name: 'Бактерицидная вода 30мл', id: 'product41', keywords: ['вода', 'бактерицидная', 'water', '30мл'] },
+  { name: 'Бактерицидная вода 10мл', id: 'product42', keywords: ['вода', 'бактерицидная', 'water', '10мл'] },
+  { name: 'Шприц инсулиновый 1 мл', id: 'product43', keywords: ['шприц', 'инсулиновый', 'syringe', '1мл'] },
+  { name: 'Игла инъекционная 0.30×12mm', id: 'product44', keywords: ['игла', 'инъекционная', 'needle'] },
+  { name: 'Картридж для шприц-ручки 3ml', id: 'product44.5', keywords: ['картридж', 'шприц-ручка', 'cartridge', '3ml'] },
+  { name: 'Салфетка спиртовая 1 шт', id: 'product45', keywords: ['салфетка', 'спиртовая', 'wipe'] }
+];
+
+function toggleSearch() {
+  const panel = document.getElementById('searchPanel');
+  const overlay = document.getElementById('searchOverlay');
+  const input = document.getElementById('searchInput');
+
+  panel.classList.toggle('active');
+  overlay.classList.toggle('active');
+
+  if (panel.classList.contains('active')) {
+    setTimeout(() => input.focus(), 300);
+  } else {
+    input.value = '';
+    document.getElementById('searchResults').innerHTML = '';
+  }
+}
+
+function closeSearch() {
+  const panel = document.getElementById('searchPanel');
+  const overlay = document.getElementById('searchOverlay');
+  const input = document.getElementById('searchInput');
+
+  panel.classList.remove('active');
+  overlay.classList.remove('active');
+  input.value = '';
+  document.getElementById('searchResults').innerHTML = '';
+}
+
+function performSearch() {
+  const query = document.getElementById('searchInput').value.toLowerCase().trim();
+  const resultsContainer = document.getElementById('searchResults');
+
+  if (query.length < 2) {
+    resultsContainer.innerHTML = '';
+    return;
+  }
+
+  const results = products.filter(product => {
+    return product.name.toLowerCase().includes(query) ||
+           product.keywords.some(keyword => keyword.toLowerCase().includes(query));
+  });
+
+  if (results.length === 0) {
+    resultsContainer.innerHTML = '<div class="search-no-results">Ничего не найдено. Попробуйте другой запрос.</div>';
+    return;
+  }
+
+  resultsContainer.innerHTML = results.map(product => `
+    <div class="search-result-item" onclick="goToProduct('${product.id}')">
+      <div class="search-result-name">${product.name}</div>
+    </div>
+  `).join('');
+}
+
+function goToProduct(productId) {
+  closeSearch();
+
+  // Find the product card by onclick attribute containing the productId
+  const productCard = Array.from(document.querySelectorAll('.product-card')).find(card => {
+    const onclickAttr = card.querySelector('[onclick]');
+    return onclickAttr && onclickAttr.getAttribute('onclick').includes(productId);
+  });
+
+  if (productCard) {
+    // Scroll to product card with offset for fixed header
+    const headerHeight = 80;
+    const elementPosition = productCard.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+
+    // Highlight the product card briefly
+    productCard.style.transition = 'all 0.3s ease';
+    productCard.style.boxShadow = '0 0 30px rgba(59, 130, 246, 0.8)';
+    productCard.style.transform = 'scale(1.02)';
+
+    setTimeout(() => {
+      productCard.style.boxShadow = '';
+      productCard.style.transform = '';
+    }, 2000);
+  }
+}
+
+// Close search on Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeSearch();
+  }
+});
+
+// Scroll to Top Button functionality
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
