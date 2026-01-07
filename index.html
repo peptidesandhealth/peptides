@@ -2554,7 +2554,6 @@
 
  /* Collapsed state for mobile */
  .product-card:not(.expanded) .product-image,
- .product-card:not(.expanded) .product-description,
  .product-card:not(.expanded) .product-benefits,
  .product-card:not(.expanded) .product-price,
  .product-card:not(.expanded) .product-details-toggle {
@@ -2566,18 +2565,29 @@
  }
 
  .product-card:not(.expanded) {
- padding: 0.75rem 1rem;
+ padding: 0.75rem 1rem 2.5rem 1rem;
  min-height: auto;
  }
 
  /* Collapsed card header */
  .product-card:not(.expanded) .product-name {
  font-size: 1rem;
- margin-bottom: 0;
+ margin-bottom: 0.25rem;
  }
 
  .product-card:not(.expanded) .product-dose {
  font-size: 0.875rem;
+ margin-bottom: 0.5rem;
+ }
+
+ /* Show description in collapsed state */
+ .product-card:not(.expanded) .product-description {
+ display: block;
+ font-size: 0.875rem;
+ line-height: 1.4;
+ color: var(--text-secondary);
+ margin-top: 0.5rem;
+ opacity: 0.9;
  }
 
  /* Add expand indicator - show on mobile */
