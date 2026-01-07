@@ -5717,42 +5717,24 @@
  </div>
  </div>
 
- <!-- Product 41: Бактерицидная вода 30 мл -->
+ <!-- Product 41: Бактерицидная вода -->
  <div class="product-card">
  <div class="product-image">
- <img src="20.png" alt="Бактерицидная вода 30мл" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+ <img src="21.png" alt="Бактерицидная вода" style="max-width: 100%; max-height: 100%; object-fit: contain;" id="img-water">
  </div>
  <div class="product-content">
  <h3 class="product-name">Бактерицидная вода</h3>
- 
  <p class="product-description">Стерильная бактерицидная вода для разведения пептидов.</p>
- 
+
  <!-- Dosage selection -->
  <div class="dosage-options">
- <div class="dosage-option active">
- <span class="dosage-label">30 мл</span>
- <span class="dosage-price">2 500 ₽</span>
- </div>
- </div>
-
- </div>
- </div>
-
- <!-- Product 42: Бактерицидная вода 10 мл -->
- <div class="product-card">
- <div class="product-image">
- <img src="21.png" alt="Бактерицидная вода 10мл" style="max-width: 100%; max-height: 100%; object-fit: contain;">
- </div>
- <div class="product-content">
- <h3 class="product-name">Бактерицидная вода</h3>
- 
- <p class="product-description">Стерильная бактерицидная вода для разведения пептидов.</p>
- 
- <!-- Dosage selection -->
- <div class="dosage-options">
- <div class="dosage-option active">
+ <div class="dosage-option active" onclick="selectDosage('water', '10ml', '950 ₽', '21.png', this)">
  <span class="dosage-label">10 мл</span>
  <span class="dosage-price">950 ₽</span>
+ </div>
+ <div class="dosage-option" onclick="selectDosage('water', '30ml', '2 500 ₽', '20.png', this)">
+ <span class="dosage-label">30 мл</span>
+ <span class="dosage-price">2 500 ₽</span>
  </div>
  </div>
 
@@ -6614,7 +6596,8 @@ const products = [
   { name: 'Melanotan II 10mg', id: 'melanotan2', keywords: ['melanotan', 'меланотан', '10mg'] },
   { name: 'Pinealon 10mg', id: 'pinealon', keywords: ['pinealon', 'пинеалон', '10mg'] },
   { name: 'Semax 10mg', id: 'semax', keywords: ['semax', 'семакс', '10mg'] },
-  { name: 'Selank 5mg', id: 'selank', keywords: ['selank', 'селанк', '5mg'] }
+  { name: 'Selank 5mg', id: 'selank', keywords: ['selank', 'селанк', '5mg'] },
+  { name: 'Бактерицидная вода', id: 'water', keywords: ['бактерицидная', 'вода', 'water', '10ml', '30ml', '10мл', '30мл'] }
 ];
 
 function toggleSearch() {
