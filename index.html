@@ -6560,45 +6560,39 @@
 
  // Search functionality
 const products = [
-  { name: 'Тирзолайт (Tirzepatide) 5mg', id: 'product19', keywords: ['тирзолайт', 'tirzepatide', '5mg'] },
-  { name: 'Тирзолайт (Tirzepatide) 10mg', id: 'product20', keywords: ['тирзолайт', 'tirzepatide', '10mg'] },
-  { name: 'Реталайт (Retatrutide) 5mg', id: 'product21', keywords: ['реталайт', 'retatrutide', '5mg'] },
-  { name: 'Реталайт (Retatrutide) 10mg', id: 'product21.5', keywords: ['реталайт', 'retatrutide', '10mg'] },
-  { name: 'AOD9604 5 mg', id: 'product22', keywords: ['aod9604', 'aod', '5mg'] },
-  { name: '5-Amino-1MQ 5mg', id: 'product22.5', keywords: ['5-amino-1mq', 'amino', '5mg'] },
-  { name: 'IGF-1LR3 1mg', id: 'product22.6', keywords: ['igf-1lr3', 'igf', '1mg'] },
-  { name: 'Ipamorelin + CJC-1295 10 mg', id: 'product23', keywords: ['ipamorelin', 'cjc-1295', 'cjc', '10mg'] },
-  { name: 'Thymosin Alpha-1 10mg', id: 'product24', keywords: ['thymosin', 'alpha-1', 'тимозин', '10mg'] },
-  { name: 'LL-37 5mg', id: 'product24.5', keywords: ['ll-37', 'll37', '5mg'] },
-  { name: 'Glow 70mg', id: 'product25', keywords: ['glow', 'глоу', '70mg'] },
-  { name: 'CLOW 80mg', id: 'product25.5', keywords: ['clow', 'клоу', '80mg'] },
-  { name: 'Snap-8 10mg', id: 'product25.6', keywords: ['snap-8', 'snap8', '10mg'] },
-  { name: 'GHK-Cu 50mg', id: 'product26', keywords: ['ghk-cu', 'ghk', '50mg'] },
-  { name: 'Epithalon 10mg', id: 'product27', keywords: ['epithalon', 'эпиталон', '10mg'] },
-  { name: 'Epithalon 40mg', id: 'product27.5', keywords: ['epithalon', 'эпиталон', '40mg'] },
-  { name: 'Epithalon 50mg', id: 'product27.6', keywords: ['epithalon', 'эпиталон', '50mg'] },
-  { name: 'KPV 10mg', id: 'product27.7', keywords: ['kpv', 'кпв', '10mg'] },
-  { name: 'BPC-157 10mg', id: 'product28', keywords: ['bpc-157', 'bpc', '10mg'] },
-  { name: 'TB-500 5 mg', id: 'product28.5', keywords: ['tb-500', 'tb500', '5mg'] },
-  { name: 'BPC-157 + TB-500 5 mg + 5 mg', id: 'product29', keywords: ['bpc-157', 'tb-500', 'bpc', 'tb', '5mg'] },
-  { name: 'MOTS-C 10mg', id: 'product30', keywords: ['mots-c', 'mots', '10mg'] },
-  { name: 'SS-31 10mg', id: 'product30.5', keywords: ['ss-31', 'ss31', '10mg'] },
-  { name: 'NAD+ 100mg', id: 'product31', keywords: ['nad+', 'nad', '100mg'] },
-  { name: 'NAD+ 500mg', id: 'product32', keywords: ['nad+', 'nad', '500mg'] },
-  { name: 'NAD+ 1000mg', id: 'product33', keywords: ['nad+', 'nad', '1000mg'] },
-  { name: 'Kisspeptin-10 5mg', id: 'product34', keywords: ['kisspeptin', 'киспептин', '5mg'] },
-  { name: 'Oxytocin 5mg', id: 'product35', keywords: ['oxytocin', 'окситоцин', '5mg'] },
-  { name: 'PT-141 10mg', id: 'product36', keywords: ['pt-141', 'pt141', '10mg'] },
-  { name: 'Melanotan II 10mg', id: 'product36.5', keywords: ['melanotan', 'меланотан', '10mg'] },
-  { name: 'Pinealon 10mg', id: 'product36.6', keywords: ['pinealon', 'пинеалон', '10mg'] },
-  { name: 'Semax 10mg', id: 'product36.7', keywords: ['semax', 'семакс', '10mg'] },
-  { name: 'Selank 5mg', id: 'product36.8', keywords: ['selank', 'селанк', '5mg'] },
-  { name: 'Бактерицидная вода 30мл', id: 'product41', keywords: ['вода', 'бактерицидная', 'water', '30мл'] },
-  { name: 'Бактерицидная вода 10мл', id: 'product42', keywords: ['вода', 'бактерицидная', 'water', '10мл'] },
-  { name: 'Шприц инсулиновый 1 мл', id: 'product43', keywords: ['шприц', 'инсулиновый', 'syringe', '1мл'] },
-  { name: 'Игла инъекционная 0.30×12mm', id: 'product44', keywords: ['игла', 'инъекционная', 'needle'] },
-  { name: 'Картридж для шприц-ручки 3ml', id: 'product44.5', keywords: ['картридж', 'шприц-ручка', 'cartridge', '3ml'] },
-  { name: 'Салфетка спиртовая 1 шт', id: 'product45', keywords: ['салфетка', 'спиртовая', 'wipe'] }
+  { name: 'Тирзолайт (Tirzepatide) 5mg', id: 'tirzepatide', keywords: ['тирзолайт', 'tirzepatide', '5mg'] },
+  { name: 'Тирзолайт (Tirzepatide) 10mg', id: 'tirzepatide10', keywords: ['тирзолайт', 'tirzepatide', '10mg'] },
+  { name: 'Реталайт (Retatrutide) 5mg', id: 'retatrutide', keywords: ['реталайт', 'retatrutide', '5mg'] },
+  { name: 'Реталайт (Retatrutide) 10mg', id: 'retatrutide10', keywords: ['реталайт', 'retatrutide', '10mg'] },
+  { name: 'AOD9604 5 mg', id: 'aod9604', keywords: ['aod9604', 'aod', '5mg'] },
+  { name: '5-Amino-1MQ 5mg', id: 'amino1mq', keywords: ['5-amino-1mq', 'amino', '5mg'] },
+  { name: 'IGF-1LR3 1mg', id: 'igf1lr3', keywords: ['igf-1lr3', 'igf', '1mg'] },
+  { name: 'Ipamorelin + CJC-1295 10 mg', id: 'ipacjc', keywords: ['ipamorelin', 'cjc-1295', 'cjc', '10mg'] },
+  { name: 'Thymosin Alpha-1 10mg', id: 'thymosin', keywords: ['thymosin', 'alpha-1', 'тимозин', '10mg'] },
+  { name: 'LL-37 5mg', id: 'll37', keywords: ['ll-37', 'll37', '5mg'] },
+  { name: 'Glow 70mg', id: 'glow', keywords: ['glow', 'глоу', '70mg'] },
+  { name: 'CLOW 80mg', id: 'clow80', keywords: ['clow', 'клоу', '80mg'] },
+  { name: 'Snap-8 10mg', id: 'snap8', keywords: ['snap-8', 'snap8', '10mg'] },
+  { name: 'GHK-Cu 50mg', id: 'ghkcu', keywords: ['ghk-cu', 'ghk', '50mg'] },
+  { name: 'Epithalon 10mg', id: 'epithalon', keywords: ['epithalon', 'эпиталон', '10mg'] },
+  { name: 'Epithalon 40mg', id: 'epithalon40', keywords: ['epithalon', 'эпиталон', '40mg'] },
+  { name: 'Epithalon 50mg', id: 'epithalon50', keywords: ['epithalon', 'эпиталон', '50mg'] },
+  { name: 'KPV 10mg', id: 'kpv10', keywords: ['kpv', 'кпв', '10mg'] },
+  { name: 'BPC-157 10mg', id: 'bpc157-10', keywords: ['bpc-157', 'bpc', '10mg'] },
+  { name: 'TB-500 5 mg', id: 'tb500', keywords: ['tb-500', 'tb500', '5mg'] },
+  { name: 'BPC-157 + TB-500 5 mg + 5 mg', id: 'bpctb500', keywords: ['bpc-157', 'tb-500', 'bpc', 'tb', '5mg'] },
+  { name: 'MOTS-C 10mg', id: 'motsc', keywords: ['mots-c', 'mots', '10mg'] },
+  { name: 'SS-31 10mg', id: 'ss31', keywords: ['ss-31', 'ss31', '10mg'] },
+  { name: 'NAD+ 100mg', id: 'nad100', keywords: ['nad+', 'nad', '100mg'] },
+  { name: 'NAD+ 500mg', id: 'nad500', keywords: ['nad+', 'nad', '500mg'] },
+  { name: 'NAD+ 1000mg', id: 'nad1000', keywords: ['nad+', 'nad', '1000mg'] },
+  { name: 'Kisspeptin-10 5mg', id: 'kisspeptin10', keywords: ['kisspeptin', 'киспептин', '5mg'] },
+  { name: 'Oxytocin 5mg', id: 'oxytocin', keywords: ['oxytocin', 'окситоцин', '5mg'] },
+  { name: 'PT-141 10mg', id: 'pt141', keywords: ['pt-141', 'pt141', '10mg'] },
+  { name: 'Melanotan II 10mg', id: 'melanotan2', keywords: ['melanotan', 'меланотан', '10mg'] },
+  { name: 'Pinealon 10mg', id: 'pinealon', keywords: ['pinealon', 'пинеалон', '10mg'] },
+  { name: 'Semax 10mg', id: 'semax', keywords: ['semax', 'семакс', '10mg'] },
+  { name: 'Selank 5mg', id: 'selank', keywords: ['selank', 'селанк', '5mg'] }
 ];
 
 function toggleSearch() {
@@ -6657,32 +6651,39 @@ function performSearch() {
 function goToProduct(productId) {
   closeSearch();
 
-  // Find the product card by onclick attribute containing the productId
-  const productCard = Array.from(document.querySelectorAll('.product-card')).find(card => {
-    const onclickAttr = card.querySelector('[onclick]');
-    return onclickAttr && onclickAttr.getAttribute('onclick').includes(productId);
-  });
+  // Find the toggle button with this product ID
+  const toggleButton = document.querySelector(`[onclick="toggleProductDetails('${productId}')"]`);
 
-  if (productCard) {
-    // Scroll to product card with offset for fixed header
-    const headerHeight = 80;
-    const elementPosition = productCard.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+  if (toggleButton) {
+    // Find the parent product card
+    const productCard = toggleButton.closest('.product-card');
 
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth'
-    });
+    if (productCard) {
+      // Scroll to product card with offset for fixed header
+      const headerHeight = 100;
+      const elementPosition = productCard.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
 
-    // Highlight the product card briefly
-    productCard.style.transition = 'all 0.3s ease';
-    productCard.style.boxShadow = '0 0 30px rgba(59, 130, 246, 0.8)';
-    productCard.style.transform = 'scale(1.02)';
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
 
-    setTimeout(() => {
-      productCard.style.boxShadow = '';
-      productCard.style.transform = '';
-    }, 2000);
+      // Highlight the product card briefly
+      productCard.style.transition = 'all 0.3s ease';
+      productCard.style.boxShadow = '0 0 30px rgba(59, 130, 246, 0.8)';
+      productCard.style.transform = 'scale(1.02)';
+
+      setTimeout(() => {
+        productCard.style.boxShadow = '';
+        productCard.style.transform = '';
+      }, 2000);
+
+      // Optionally expand the details
+      setTimeout(() => {
+        toggleProductDetails(productId);
+      }, 500);
+    }
   }
 }
 
