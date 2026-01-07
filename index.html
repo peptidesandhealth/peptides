@@ -2602,8 +2602,7 @@
  /* Collapsed state for mobile */
  .product-card:not(.expanded) .product-image,
  .product-card:not(.expanded) .product-benefits,
- .product-card:not(.expanded) .product-price,
- .product-card:not(.expanded) .product-details-toggle {
+ .product-card:not(.expanded) .product-price {
  display: none;
  }
 
@@ -5936,6 +5935,8 @@
 
  // Toggle Product Details Function - Now opens modal window
  function toggleProductDetails(productId) {
+ console.log('toggleProductDetails called with:', productId);
+ alert('Клик по кнопке "Подробнее" для: ' + productId);
  openProductModal(productId);
  }
 
@@ -5943,16 +5944,27 @@
  function openProductModal(productId) {
  const modal = document.getElementById('productModal');
  
+ console.log('=== openProductModal called for:', productId);
+
  // Get product card element by finding the button with onclick containing productId
- const toggleButton = document.querySelector(`[onclick*="toggleProductDetails('${productId}')"]`);
+ const selector = `[onclick*="toggleProductDetails('${productId}')"]`;
+ console.log('Looking for selector:', selector);
+
+ const toggleButton = document.querySelector(selector);
+ console.log('Toggle button found:', !!toggleButton);
+
  if (!toggleButton) {
-   console.error('Toggle button not found for:', productId);
+   console.error('❌ Toggle button not found for:', productId);
+   alert('Ошибка: Кнопка не найдена для ' + productId);
    return;
  }
 
  const productCard = toggleButton.closest('.product-card');
+ console.log('Product card found:', !!productCard);
+
  if (!productCard) {
-   console.error('Product card not found for:', productId);
+   console.error('❌ Product card not found for:', productId);
+   alert('Ошибка: Карточка товара не найдена для ' + productId);
    return;
  }
  
