@@ -2754,15 +2754,15 @@
  -webkit-tap-highlight-color: transparent;
  }
 
- /* Improved product card interaction */
- .product-card {
- cursor: pointer;
- transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+ /* Improved touch interactions for dosage options */
+ .dosage-option {
+ touch-action: manipulation;
+ -webkit-tap-highlight-color: transparent;
  }
 
- .product-card:active {
- transform: scale(0.98);
- box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+ .dosage-option:active {
+ transform: scale(0.95);
+ background: rgba(59, 130, 246, 0.4);
  }
 
  /* Better modal close button */
@@ -6416,8 +6416,11 @@
 
  // Dosage selection functionality
 function selectDosage(productId, dosage, price, imageSrc, element) {
-  // Prevent card collapse when clicking dosage option
-  event.stopPropagation();
+  // Prevent event from bubbling up to parent elements
+  if (event) {
+    event.stopPropagation();
+    event.preventDefault();
+  }
 
   // Remove active class from all dosage options in this card
   const card = element.closest('.product-card');
@@ -6435,6 +6438,9 @@ function selectDosage(productId, dosage, price, imageSrc, element) {
       img.alt = `${productId} ${dosage}`;
     }
   }
+
+  // Return false to prevent any default action
+  return false;
 }
 
 // Search functionality
