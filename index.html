@@ -5950,9 +5950,23 @@
  
  // Get product data from card
  const productName = productCard.querySelector('.product-name').textContent;
- const productDose = productCard.querySelector('.product-dose').textContent;
+
+ // Check if card has dosage options (consolidated card) or traditional structure
+ const activeDosage = productCard.querySelector('.dosage-option.active');
+ let productDose = '';
+ let productPrice = '';
+
+ if (activeDosage) {
+   // Consolidated card with dosage selection
+   productDose = activeDosage.querySelector('.dosage-label')?.textContent || '';
+   productPrice = activeDosage.querySelector('.dosage-price')?.textContent || '';
+ } else {
+   // Traditional card structure
+   productDose = productCard.querySelector('.product-dose')?.textContent || '';
+   productPrice = productCard.querySelector('.product-price')?.textContent || '';
+ }
+
  const productDescription = productCard.querySelector('.product-description').textContent;
- const productPrice = productCard.querySelector('.product-price').textContent;
  const productImage = productCard.querySelector('.product-image img');
  const productBenefits = productCard.querySelectorAll('.product-benefits li');
  const fullDescription = productCard.querySelector('.product-full-description-content');
