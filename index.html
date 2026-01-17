@@ -1161,6 +1161,46 @@
  padding: 0 2rem;
  }
 
+ /* Category Filter Styles */
+ .category-filter {
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
+ gap: 0.8rem;
+ margin: 2rem 0;
+ padding: 0 1rem;
+ }
+
+ .category-btn {
+ background: linear-gradient(135deg, rgba(30, 58, 95, 0.7) 0%, rgba(30, 41, 59, 0.7) 100%);
+ color: var(--text-primary);
+ border: 1px solid rgba(59, 130, 246, 0.3);
+ border-radius: 25px;
+ padding: 0.6rem 1.5rem;
+ font-size: 0.9rem;
+ font-weight: 600;
+ cursor: pointer;
+ transition: all 0.3s ease;
+ white-space: nowrap;
+ }
+
+ .category-btn:hover {
+ background: linear-gradient(135deg, rgba(59, 130, 246, 0.3) 0%, rgba(99, 102, 241, 0.3) 100%);
+ border-color: rgba(59, 130, 246, 0.6);
+ transform: translateY(-2px);
+ box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+ }
+
+ .category-btn.active {
+ background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+ border-color: #3b82f6;
+ box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+ }
+
+ .product-card.hidden {
+ display: none;
+ }
+
  .products-grid {
  display: grid;
  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -3479,11 +3519,23 @@
  <section class="products" id="products">
  <div class="products-container">
  <h2 class="section-title">Наши продукты</h2>
- 
+
+ <!-- Category Filter Buttons -->
+ <div class="category-filter">
+ <button class="category-btn active" onclick="filterCategory('all')">Все продукты</button>
+ <button class="category-btn" onclick="filterCategory('metabolism')">Метаболизм, обмен веществ, контроль веса</button>
+ <button class="category-btn" onclick="filterCategory('antiage')">Антиэйдж, омоложение, обновление</button>
+ <button class="category-btn" onclick="filterCategory('energy')">Антистресс, энергия, баланс</button>
+ <button class="category-btn" onclick="filterCategory('treatment')">Лечение болезней, инфекций, вирусов</button>
+ <button class="category-btn" onclick="filterCategory('immunity')">Иммунитет, поддержка, защита</button>
+ <button class="category-btn" onclick="filterCategory('regeneration')">Регенерация, заживление, восстановление</button>
+ <button class="category-btn" onclick="filterCategory('reproduction')">Репродукция, секреция, либидо</button>
+ </div>
+
  <div class="products-grid">
 
  <!-- Product 19: Tirzepatide -->
- <div class="product-card">
+ <div class="product-card" data-category="metabolism">
  <div class="product-image">
  <img src="1.png" alt="Тирзолайт (Tirzepatide)" style="max-width: 100%; max-height: 100%; object-fit: contain;" id="img-tirzepatide">
  </div>
@@ -3569,7 +3621,7 @@
  </div>
 
  <!-- Product 21: Retatrutide -->
- <div class="product-card">
+ <div class="product-card" data-category="metabolism">
  <div class="product-image">
  <img src="3.png" alt="Реталайт (Retatrutide)" style="max-width: 100%; max-height: 100%; object-fit: contain;" id="img-retatrutide">
  </div>
@@ -3654,7 +3706,7 @@
  </div>
 
 <!-- Product 22: AOD9604 5mg -->
- <div class="product-card">
+ <div class="product-card" data-category="metabolism">
  <div class="product-image">
  <img src="4.png" alt="AOD9604 5 mg" style="max-width: 100%; max-height: 100%; object-fit: contain;">
  </div>
@@ -3745,7 +3797,7 @@
  </div>
 
  <!-- Product 22.5: 5-Amino-1MQ 5mg -->
- <div class="product-card">
+ <div class="product-card" data-category="metabolism">
  <div class="product-image">
  <img src="5-Amino-1MQ.PNG" alt="5-Amino-1MQ 5mg" style="max-width: 100%; max-height: 100%; object-fit: contain;">
  </div>
@@ -3814,7 +3866,7 @@
  </div>
 
  <!-- Product 22.6: IGF-1LR3 1mg -->
- <div class="product-card">
+ <div class="product-card" data-category="antiage metabolism">
  <div class="product-image">
  <img src="IGF-1LR3.PNG" alt="IGF-1LR3 1mg" style="max-width: 100%; max-height: 100%; object-fit: contain;">
  </div>
@@ -3884,7 +3936,7 @@
  </div>
 
  <!-- Product 23: Ipamorelin + CJC-1295 10mg -->
- <div class="product-card">
+ <div class="product-card" data-category="antiage energy">
  <div class="product-image">
  <img src="5.png" alt="Ipamorelin + CJC-1295 10 mg" style="max-width: 100%; max-height: 100%; object-fit: contain;">
  </div>
@@ -3976,7 +4028,7 @@
  </div>
 
  <!-- Product 24: Thymosin Alpha-1 10mg -->
- <div class="product-card">
+ <div class="product-card" data-category="immunity">
  <div class="product-image">
  <img src="6.png" alt="Thymosin Alpha-1 10mg" style="max-width: 100%; max-height: 100%; object-fit: contain;">
  </div>
@@ -4067,7 +4119,7 @@
  </div>
 
  <!-- Product 24.5: LL-37 5mg -->
- <div class="product-card">
+ <div class="product-card" data-category="immunity treatment">
  <div class="product-image">
  <img src="LL-37.PNG" alt="LL-37 5mg" style="max-width: 100%; max-height: 100%; object-fit: contain;">
  </div>
@@ -4138,7 +4190,7 @@
  </div>
 
  <!-- Product 25: Glow 70mg -->
- <div class="product-card">
+ <div class="product-card" data-category="antiage">
  <div class="product-image">
  <img src="7.png" alt="Glow 70mg" style="max-width: 100%; max-height: 100%; object-fit: contain;">
  </div>
@@ -4208,7 +4260,7 @@
  </div>
 
  <!-- Product 25.5: CLOW 80mg -->
- <div class="product-card">
+ <div class="product-card" data-category="antiage">
  <div class="product-image">
  <img src="clow80.PNG" alt="CLOW 80mg" style="max-width: 100%; max-height: 100%; object-fit: contain;">
  </div>
@@ -4273,7 +4325,7 @@
  </div>
 
  <!-- Product 25.6: Snap-8 10mg -->
- <div class="product-card">
+ <div class="product-card" data-category="antiage">
  <div class="product-image">
  <img src="Snap-8.PNG" alt="Snap-8 10mg" style="max-width: 100%; max-height: 100%; object-fit: contain;">
  </div>
@@ -4338,7 +4390,7 @@
  </div>
 
  <!-- Product 26: GHK-Cu 50mg -->
- <div class="product-card">
+ <div class="product-card" data-category="antiage regeneration">
  <div class="product-image">
  <img src="8.png" alt="GHK-Cu 50mg" style="max-width: 100%; max-height: 100%; object-fit: contain;">
  </div>
@@ -4428,7 +4480,7 @@
  </div>
 
  <!-- Product 27: Epithalon -->
- <div class="product-card">
+ <div class="product-card" data-category="antiage">
  <div class="product-image">
  <img src="9.png" alt="Epithalon" style="max-width: 100%; max-height: 100%; object-fit: contain;" id="img-epithalon">
  </div>
@@ -4526,7 +4578,7 @@
  </div>
 
 <!-- Product 27.7: KPV 10mg -->
-<div class="product-card">
+<div class="product-card" data-category="treatment">
 <div class="product-image">
 <img src="KPV.PNG" alt="KPV 10mg" style="max-width: 100%; max-height: 100%; object-fit: contain;">
 </div>
@@ -4590,7 +4642,7 @@
 </div>
 
 <!-- Product 28: BPC-157 10mg -->
- <div class="product-card">
+ <div class="product-card" data-category="regeneration treatment">
  <div class="product-image">
  <img src="10.png" alt="BPC-157 10mg" style="max-width: 100%; max-height: 100%; object-fit: contain;">
  </div>
@@ -4682,7 +4734,7 @@
  </div>
 
  <!-- Product 28.5: TB-500 5mg -->
- <div class="product-card">
+ <div class="product-card" data-category="regeneration treatment">
  <div class="product-image">
  <img src="19.png" alt="TB-500 5 mg" style="max-width: 100%; max-height: 100%; object-fit: contain;">
  </div>
@@ -4764,7 +4816,7 @@
  </div>
 
  <!-- Product 29: BPC-157 + TB-500 5mg+5mg -->
- <div class="product-card">
+ <div class="product-card" data-category="regeneration treatment">
  <div class="product-image">
  <img src="11.png" alt="BPC-157 + TB-500 5 mg + 5 mg" style="max-width: 100%; max-height: 100%; object-fit: contain;">
  </div>
@@ -4850,7 +4902,7 @@
  </div>
 
  <!-- Product 30: MOTS-C 10mg -->
- <div class="product-card">
+ <div class="product-card" data-category="energy metabolism antiage">
  <div class="product-image">
  <img src="12.png" alt="MOTS-C 10mg" style="max-width: 100%; max-height: 100%; object-fit: contain;">
  </div>
@@ -4950,7 +5002,7 @@
  </div>
 
  <!-- Product 30.5: SS-31 10mg -->
- <div class="product-card">
+ <div class="product-card" data-category="energy antiage">
  <div class="product-image">
  <img src="SS-31.PNG" alt="SS-31 10mg" style="max-width: 100%; max-height: 100%; object-fit: contain;">
  </div>
@@ -5021,7 +5073,7 @@
  </div>
 
  <!-- Product 31: NAD+ -->
- <div class="product-card">
+ <div class="product-card" data-category="energy antiage">
  <div class="product-image">
  <img src="13.png" alt="NAD+" style="max-width: 100%; max-height: 100%; object-fit: contain;" id="img-nad">
  </div>
@@ -5119,7 +5171,7 @@
  </div>
 
  <!-- Product 34: Kisspeptin-10 5mg -->
- <div class="product-card">
+ <div class="product-card" data-category="reproduction">
  <div class="product-image">
  <img src="16.png" alt="Kisspeptin-10 5mg" style="max-width: 100%; max-height: 100%; object-fit: contain;">
  </div>
@@ -5194,7 +5246,7 @@
  </div>
 
  <!-- Product 35: Oxytocin 5mg -->
- <div class="product-card">
+ <div class="product-card" data-category="energy reproduction">
  <div class="product-image">
  <img src="17.png" alt="Oxytocin 5mg" style="max-width: 100%; max-height: 100%; object-fit: contain;">
  </div>
@@ -5292,7 +5344,7 @@
  </div>
 
  <!-- Product 36: PT-141 10mg -->
- <div class="product-card">
+ <div class="product-card" data-category="reproduction">
  <div class="product-image">
  <img src="18.png" alt="PT-141 10mg" style="max-width: 100%; max-height: 100%; object-fit: contain;">
  </div>
@@ -5385,7 +5437,7 @@
  </div>
 
  <!-- Product 36.5: Melanotan II 10mg -->
- <div class="product-card">
+ <div class="product-card" data-category="reproduction">
  <div class="product-image">
  <img src="MelanotanII.PNG" alt="Melanotan II 10mg" style="max-width: 100%; max-height: 100%; object-fit: contain;">
  </div>
@@ -5456,7 +5508,7 @@
  </div>
 
  <!-- Product 36.6: Pinealon 10mg -->
- <div class="product-card">
+ <div class="product-card" data-category="energy antiage">
  <div class="product-image">
  <img src="Pinealon.PNG" alt="Pinealon 10mg" style="max-width: 100%; max-height: 100%; object-fit: contain;">
  </div>
@@ -5525,7 +5577,7 @@
  </div>
 
  <!-- Product 36.7: Semax 10mg -->
- <div class="product-card">
+ <div class="product-card" data-category="energy">
  <div class="product-image">
  <img src="Semax.PNG" alt="Semax 10mg" style="max-width: 100%; max-height: 100%; object-fit: contain;">
  </div>
@@ -5595,7 +5647,7 @@
  </div>
 
  <!-- Product 36.8: Selank 5mg -->
- <div class="product-card">
+ <div class="product-card" data-category="energy">
  <div class="product-image">
  <img src="Selank.PNG" alt="Selank 5mg" style="max-width: 100%; max-height: 100%; object-fit: contain;">
  </div>
@@ -6094,6 +6146,32 @@
  window.moveProductsCarousel = moveProductsCarousel;
  }
  });
+
+ // Category Filter Function
+ function filterCategory(category) {
+ const cards = document.querySelectorAll('.product-card');
+ const buttons = document.querySelectorAll('.category-btn');
+
+ // Update active button
+ buttons.forEach(btn => btn.classList.remove('active'));
+ event.target.classList.add('active');
+
+ // Filter cards
+ cards.forEach(card => {
+ if (category === 'all') {
+ card.classList.remove('hidden');
+ } else {
+ const cardCategories = card.getAttribute('data-category');
+ if (cardCategories && cardCategories.includes(category)) {
+ card.classList.remove('hidden');
+ } else {
+ card.classList.add('hidden');
+ }
+ }
+ });
+ }
+
+ window.filterCategory = filterCategory;
 
  // Toggle Product Details Function - Now opens modal window
  function toggleProductDetails(productId) {
