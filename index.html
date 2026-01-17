@@ -307,6 +307,7 @@
  position: relative;
  overflow: hidden;
  background: transparent;
+ touch-action: none; /* Disable swipe - only arrow buttons work */
  }
 
  .carousel-slides {
@@ -6296,36 +6297,37 @@
  }
  });
 
- // Touch support for carousels
- let touchStartX = 0;
- let touchEndX = 0;
+ // Touch support for carousels - DISABLED for hero carousel
+ // Swipe navigation disabled - only arrow buttons work
+ // let touchStartX = 0;
+ // let touchEndX = 0;
 
- const carouselWrappers = document.querySelectorAll('.carousel-wrapper');
- carouselWrappers.forEach(wrapper => {
- wrapper.addEventListener('touchstart', function(event) {
- touchStartX = event.changedTouches[0].screenX;
- }, { passive: true });
+ // const carouselWrappers = document.querySelectorAll('.carousel-wrapper');
+ // carouselWrappers.forEach(wrapper => {
+ // wrapper.addEventListener('touchstart', function(event) {
+ // touchStartX = event.changedTouches[0].screenX;
+ // }, { passive: true });
 
- wrapper.addEventListener('touchend', function(event) {
- touchEndX = event.changedTouches[0].screenX;
- handleSwipe();
- }, { passive: true });
- });
+ // wrapper.addEventListener('touchend', function(event) {
+ // touchEndX = event.changedTouches[0].screenX;
+ // handleSwipe();
+ // }, { passive: true });
+ // });
 
- function handleSwipe() {
- const swipeThreshold = 50;
- const diff = touchStartX - touchEndX;
+ // function handleSwipe() {
+ // const swipeThreshold = 50;
+ // const diff = touchStartX - touchEndX;
 
- if (Math.abs(diff) > swipeThreshold) {
- if (diff > 0) {
- // Swipe left
- moveCarousel(1);
- } else {
- // Swipe right
- moveCarousel(-1);
- }
- }
- }
+ // if (Math.abs(diff) > swipeThreshold) {
+ // if (diff > 0) {
+ // // Swipe left
+ // moveCarousel(1);
+ // } else {
+ // // Swipe right
+ // moveCarousel(-1);
+ // }
+ // }
+ // }
 
  // Touch support for products carousel
  let productsTouchStartX = 0;
