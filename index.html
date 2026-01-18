@@ -2860,6 +2860,70 @@
 
  }
 
+/* ================================================
+   MOBILE CATEGORIES OPTIMIZATION (max-width: 768px)
+   ================================================ */
+
+@media (max-width: 768px) {
+
+ /* Category filter - horizontal scroll chips */
+ .category-filter {
+ display: flex;
+ flex-wrap: nowrap;
+ overflow-x: auto;
+ overflow-y: hidden;
+ justify-content: flex-start;
+ gap: 8px;
+ margin: 1rem 0 1.5rem;
+ padding: 0.75rem 1rem;
+ -webkit-overflow-scrolling: touch;
+ scrollbar-width: none;
+ /* Optional sticky */
+ position: sticky;
+ top: 70px;
+ z-index: 90;
+ background: rgba(15, 23, 42, 0.9);
+ backdrop-filter: blur(10px);
+ border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+ }
+
+ .category-filter::-webkit-scrollbar {
+ display: none;
+ }
+
+ /* Compact chip buttons */
+ .category-btn {
+ flex-shrink: 0;
+ height: 38px;
+ padding: 0 16px;
+ font-size: 0.8125rem;
+ border-radius: 999px;
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ white-space: nowrap;
+ min-width: auto;
+ }
+
+ /* Active chip more visible */
+ .category-btn.active {
+ background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+ border-color: #3b82f6;
+ box-shadow: 0 4px 12px rgba(59, 130, 246, 0.5);
+ transform: scale(1.02);
+ }
+
+ /* Section spacing */
+ .products-container {
+ padding-top: 0.5rem;
+ }
+
+ .section-title {
+ margin-bottom: 0.5rem;
+ }
+
+}
+
  </style>
 </head>
 <body>
@@ -6701,6 +6765,55 @@ window.addEventListener('scroll', () => {
       scrollBtn.classList.remove('visible');
     }
   }
+});
+
+// ================================================
+// MOBILE CATEGORIES: Short labels on mobile
+// ================================================
+
+function updateCategoryLabels() {
+  const isMobile = window.innerWidth <= 768;
+
+  const categoryButtons = document.querySelectorAll('.category-btn');
+
+  const labelMap = {
+    'Все продукты': 'Все',
+    'Метаболизм, обмен веществ, контроль веса': 'Метаболизм',
+    'Антиэйдж, омоложение, обновление': 'Антиэйдж',
+    'Антистресс, энергия, баланс': 'Антистресс',
+    'Лечение болезней, инфекций, вирусов': 'Инфекции',
+    'Иммунитет, поддержка, защита': 'Иммунитет',
+    'Регенерация, заживление, восстановление': 'Регенерация',
+    'Репродукция, секреция, либидо': 'Либидо'
+  };
+
+  categoryButtons.forEach(btn => {
+    const fullText = btn.getAttribute('data-full-text') || btn.textContent.trim();
+
+    // Store full text on first run
+    if (!btn.getAttribute('data-full-text')) {
+      btn.setAttribute('data-full-text', fullText);
+      btn.setAttribute('title', fullText);
+      btn.setAttribute('aria-label', fullText);
+    }
+
+    // Update text based on viewport
+    if (isMobile && labelMap[fullText]) {
+      btn.textContent = labelMap[fullText];
+    } else {
+      btn.textContent = fullText;
+    }
+  });
+}
+
+// Run on load
+updateCategoryLabels();
+
+// Run on resize (debounced)
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(updateCategoryLabels, 250);
 });
 
 </script>
